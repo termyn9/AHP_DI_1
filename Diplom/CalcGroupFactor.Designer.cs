@@ -46,14 +46,16 @@
             // 
             // lbGroupFactor
             // 
+            this.lbGroupFactor.ColumnWidth = 4;
             this.lbGroupFactor.FormattingEnabled = true;
+            this.lbGroupFactor.HorizontalExtent = 4;
             this.lbGroupFactor.Items.AddRange(new object[] {
-            "Обуславливаемые характером обрабатываемой информации ",
-            "Обуславливаемые архитектурой АСОД",
-            "Обуславливаемые условиями функционирования  АСОД",
-            "Обуславливаемые технологией обработки информации",
-            "Обуславливаемые организацией работы АСОД"});
-            this.lbGroupFactor.Location = new System.Drawing.Point(27, 52);
+            "1. Обуславливаемые характером обрабатываемой информации ",
+            "2. Обуславливаемые архитектурой АСОД",
+            "3. Обуславливаемые условиями функционирования  АСОД",
+            "4. Обуславливаемые технологией обработки информации",
+            "5. Обуславливаемые организацией работы АСОД"});
+            this.lbGroupFactor.Location = new System.Drawing.Point(27, 53);
             this.lbGroupFactor.MultiColumn = true;
             this.lbGroupFactor.Name = "lbGroupFactor";
             this.lbGroupFactor.Size = new System.Drawing.Size(325, 95);
@@ -63,14 +65,15 @@
             // 
             this.dGVGroupFactor.AllowUserToOrderColumns = true;
             this.dGVGroupFactor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVGroupFactor.Location = new System.Drawing.Point(388, 52);
+            this.dGVGroupFactor.Location = new System.Drawing.Point(379, 12);
             this.dGVGroupFactor.Name = "dGVGroupFactor";
-            this.dGVGroupFactor.Size = new System.Drawing.Size(349, 190);
+            this.dGVGroupFactor.Size = new System.Drawing.Size(400, 190);
             this.dGVGroupFactor.TabIndex = 2;
+            this.dGVGroupFactor.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVGroupFactor_CellEndEdit);
             // 
             // bReadyGroupFactor
             // 
-            this.bReadyGroupFactor.Location = new System.Drawing.Point(560, 272);
+            this.bReadyGroupFactor.Location = new System.Drawing.Point(567, 233);
             this.bReadyGroupFactor.Name = "bReadyGroupFactor";
             this.bReadyGroupFactor.Size = new System.Drawing.Size(107, 45);
             this.bReadyGroupFactor.TabIndex = 3;

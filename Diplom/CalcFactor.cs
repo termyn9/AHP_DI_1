@@ -12,9 +12,20 @@ namespace Diplom
 {
     public partial class CalcFactor : Form
     {
-        public CalcFactor()
+        Form FormGroupFactors;
+        List<string> ValuesAutoFill;
+        List<string> ValuesGroup;
+        List<string> ListGroupFactors;
+        decimal[] WeightsGroupFactros;
+
+        public CalcFactor(Form calcGroupFactor, List<string> valuesAutoFill, List<string> valuesGroup, List<string> ListGroupFactor, decimal[] sumResultArray)
         {
             InitializeComponent();
+            this.FormGroupFactors = calcGroupFactor;
+            this.ValuesAutoFill = valuesAutoFill;
+            this.ValuesGroup = valuesGroup;
+            this.ListGroupFactors = ListGroupFactor;
+            this.WeightsGroupFactros = sumResultArray;
         }
     }
 }
