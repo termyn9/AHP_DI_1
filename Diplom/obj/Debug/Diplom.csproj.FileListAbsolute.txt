@@ -11,3 +11,5 @@ C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.exe
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.pdb
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.CalcGroupFactor.resources
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.CalcFactor.resources
+C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.CalcCoeff.resources
+C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.ResultForm.resources

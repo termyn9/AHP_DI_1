@@ -12,6 +12,10 @@ namespace Diplom
 {
     public partial class Form1 : Form
     {
+        Form FormGroupFactors;
+        List<string> ListGroupFactors;
+        double[] WeightsGroupFactros;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,8 +30,17 @@ namespace Diplom
             }
             else
             {
-                CalcFactor calcFactor = new CalcFactor();
+                CalcFactor calcFactor = new CalcFactor(FormGroupFactors, ListGroupFactors, WeightsGroupFactros);
                 calcFactor.Show();
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cbUserFunction.SelectedIndex == 0)
+            {
+                CalcCoeff calcCoeff = new CalcCoeff();
+                calcCoeff.Show();
             }
         }
     }

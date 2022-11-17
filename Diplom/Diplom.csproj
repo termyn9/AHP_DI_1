@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalcCoeff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalcCoeff.Designer.cs">
+      <DependentUpon>CalcCoeff.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalcFactor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,8 +85,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CalcCoeff.resx">
+      <DependentUpon>CalcCoeff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CalcFactor.resx">
       <DependentUpon>CalcFactor.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

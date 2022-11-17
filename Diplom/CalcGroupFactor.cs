@@ -12,7 +12,7 @@ namespace Diplom
 {
     public partial class CalcGroupFactor : Form
     {
-        decimal[,] priorities;
+        double[,] PrioritiesGroupFactor;
         List<string> ListGroupFactor;
         List<string> valuesAutoFill = new List<string>() { "2", "3", "4", "5", "6", "7", "8", "9", "1/9", "1/8", "1/7", "1/6", "1/5", "1/4", "1/3", "1/2" };
         List<string> valuesGroup = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "1/2", "1/3", "1/4", "1/5", "1/6", "1/7", "1/8", "1/9" };
@@ -23,7 +23,7 @@ namespace Diplom
             InitializeComponent();
 
             this.ListGroupFactor = lbGroupFactor.Items.Cast<String>().ToList();
-            this.priorities = new decimal[ListGroupFactor.Count, ListGroupFactor.Count];
+            this.PrioritiesGroupFactor = new double[ListGroupFactor.Count, ListGroupFactor.Count];
 
             lbGroupFactor.MultiColumn = true;
 
@@ -43,89 +43,64 @@ namespace Diplom
 
         }
 
-        public double FractionToDouble(string fraction)
+        public double[] mainVectorArray()
         {
-            double result;
-
-            if (double.TryParse(fraction, out result))
+            double[] sum = new double[ListGroupFactor.Count];
+            for (int i = 0; i < sum.Length; i++)
             {
-                return result;
+                sum[i] = 1;
             }
-
-            string[] split = fraction.Split(new char[] { ' ', '/' });
-
-            if (split.Length == 2 || split.Length == 3)
-            {
-                int a, b;
-
-                if (int.TryParse(split[0], out a) && int.TryParse(split[1], out b))
-                {
-                    if (split.Length == 2)
-                    {
-                        return (double)a / b;
-                    }
-
-                    int c;
-
-                    if (int.TryParse(split[2], out c))
-                    {
-                        return a + (double)b / c;
-                    }
-                }
-            }
-
-            throw new FormatException("Not a valid fraction.");
-        }
-
-        public decimal[] sumColumnArray()
-        {
-            decimal[] sum = new decimal[ListGroupFactor.Count];
 
             for (int i = 0; i < ListGroupFactor.Count; i++)
             {
                 for (int j = 0; j < ListGroupFactor.Count; j++)
                 {
-                    sum[i] += priorities[j, i];
+                    sum[i] *= PrioritiesGroupFactor[i, j];
                 }
+                sum[i] = Math.Pow(sum[i], (double) 1 / ListGroupFactor.Count);
             }
             return sum;
         }
 
         private void bReadyGroupFactor_Click(object sender, EventArgs e)
         {
-            decimal[] sum = new decimal[ListGroupFactor.Count - 1];
+            
             for (int i = 0; i < ListGroupFactor.Count; i++)
             {
                 for (int j = 0; j < ListGroupFactor.Count; j++)
                 {
-                    if (Convert.ToDecimal(FractionToDouble(dGVGroupFactor[j, i].Value.ToString())) == 0)
+                    if (Convert.ToDecimal(HelpFunctions.FractionToDouble(dGVGroupFactor[j, i].Value.ToString())) == 0)
                     {
                         MessageBox.Show("Заполните все поля!");
                         return;
                     }
                     else
                     {
-                        priorities[i, j] = Convert.ToDecimal(FractionToDouble(dGVGroupFactor[j, i].Value.ToString()));
+                        PrioritiesGroupFactor[i, j] = HelpFunctions.FractionToDouble(dGVGroupFactor[j, i].Value.ToString());
                     }
                 }
             }
 
-            decimal[] sumColArray = sumColumnArray();
-            decimal[] sumResultArray = new decimal[ListGroupFactor.Count];
+            double[] sumVectorArray = mainVectorArray();
+            double[] sumResultArray = new double[ListGroupFactor.Count];
+            double sumMainVector = 0;
 
             dGVGroupFactor.Columns.Add("sumstr", "Вес");
             dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].HeaderText = "Вес";
             dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].Width = 90;
+
+            for (int j = 0; j < ListGroupFactor.Count; j++)
+            {
+                sumMainVector += sumVectorArray[j];
+            }
+
             for (int i = 0; i < ListGroupFactor.Count; i++)
             {
-                for (int j = 0; j < ListGroupFactor.Count; j++)
-                {
-                    sumResultArray[i] += priorities[i, j] / (sumColArray[j] * ListGroupFactor.Count);
-                }
+                sumResultArray[i] += sumVectorArray[i] / sumMainVector;
                 dGVGroupFactor[dGVGroupFactor.ColumnCount - 1, i].Value = sumResultArray[i];
             }
 
-            CalcFactor calcFactor = new CalcFactor(this, valuesAutoFill, valuesGroup, ListGroupFactor, sumResultArray);
+            CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);
         }
 
         private void CalcGroupFactor_Load(object sender, EventArgs e)
@@ -143,9 +118,13 @@ namespace Diplom
                 {
                     if (i != j)
                     {
-                        if (value != "0")
+                        if (value != "0" && value != "1")
                         {
                             dGVGroupFactor.Rows[e.ColumnIndex].Cells[e.RowIndex].Value = valuesAutoFill[valuesAutoFill.Count - valuesAutoFill.IndexOf(value) - 1];
+                        }
+                        else if (value == "1")
+                        {
+                            dGVGroupFactor.Rows[e.ColumnIndex].Cells[e.RowIndex].Value = "1";
                         }
                     }
                 }

@@ -30,6 +30,8 @@
         {
             this.cbGroupOrFactor = new System.Windows.Forms.ComboBox();
             this.labelExpAnalys = new System.Windows.Forms.Label();
+            this.lUser = new System.Windows.Forms.Label();
+            this.cbUserFunction = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cbGroupOrFactor
@@ -53,11 +55,33 @@
             this.labelExpAnalys.TabIndex = 1;
             this.labelExpAnalys.Text = "Экспертный анализ:";
             // 
+            // lUser
+            // 
+            this.lUser.AutoSize = true;
+            this.lUser.Location = new System.Drawing.Point(30, 122);
+            this.lUser.Name = "lUser";
+            this.lUser.Size = new System.Drawing.Size(83, 13);
+            this.lUser.TabIndex = 2;
+            this.lUser.Text = "Пользователь:";
+            // 
+            // cbUserFunction
+            // 
+            this.cbUserFunction.FormattingEnabled = true;
+            this.cbUserFunction.Items.AddRange(new object[] {
+            "Расчет коэффициента"});
+            this.cbUserFunction.Location = new System.Drawing.Point(33, 157);
+            this.cbUserFunction.Name = "cbUserFunction";
+            this.cbUserFunction.Size = new System.Drawing.Size(121, 21);
+            this.cbUserFunction.TabIndex = 3;
+            this.cbUserFunction.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbUserFunction);
+            this.Controls.Add(this.lUser);
             this.Controls.Add(this.labelExpAnalys);
             this.Controls.Add(this.cbGroupOrFactor);
             this.Name = "Form1";
@@ -71,6 +95,8 @@
 
         private System.Windows.Forms.ComboBox cbGroupOrFactor;
         private System.Windows.Forms.Label labelExpAnalys;
+        private System.Windows.Forms.Label lUser;
+        private System.Windows.Forms.ComboBox cbUserFunction;
     }
 }
 
