@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,18 +13,31 @@ namespace Diplom
 {
     public partial class CalcGroupFactor : Form
     {
+        
         double[,] PrioritiesGroupFactor;
         List<string> ListGroupFactor;
         List<string> valuesAutoFill = new List<string>() { "2", "3", "4", "5", "6", "7", "8", "9", "1/9", "1/8", "1/7", "1/6", "1/5", "1/4", "1/3", "1/2" };
         List<string> valuesGroup = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "1/2", "1/3", "1/4", "1/5", "1/6", "1/7", "1/8", "1/9" };
 
-
+        CoeffContext db;
         public CalcGroupFactor()
         {
             InitializeComponent();
 
+            // БД
+            db = new CoeffContext();
+            db.Groups.Load();
+
             this.ListGroupFactor = lbGroupFactor.Items.Cast<String>().ToList();
             this.PrioritiesGroupFactor = new double[ListGroupFactor.Count, ListGroupFactor.Count];
+
+            for (int i = 0; i < ListGroupFactor.Count; i++)
+            {
+                ListViewItem group = new ListViewItem((i + 1).ToString());
+                lVGroupFactors.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                group.SubItems.Add(ListGroupFactor[i]);
+                lVGroupFactors.Items.Add(group);
+            }
 
             lbGroupFactor.MultiColumn = true;
 
@@ -64,7 +78,6 @@ namespace Diplom
 
         private void bReadyGroupFactor_Click(object sender, EventArgs e)
         {
-            
             for (int i = 0; i < ListGroupFactor.Count; i++)
             {
                 for (int j = 0; j < ListGroupFactor.Count; j++)
@@ -98,6 +111,23 @@ namespace Diplom
             {
                 sumResultArray[i] += sumVectorArray[i] / sumMainVector;
                 dGVGroupFactor[dGVGroupFactor.ColumnCount - 1, i].Value = sumResultArray[i];
+            }
+
+            // === Добавление в БД === //
+
+            for (int i = 0; i < ListGroupFactor.Count; i++)
+            {
+                GroupFactor groupFactor = new GroupFactor();
+                groupFactor.Title = ListGroupFactor[i];
+                groupFactor.Weight = sumResultArray[i];
+                db.Groups.Add(groupFactor);
+            }
+            db.SaveChanges();
+
+            if (sumResultArray[sumResultArray.Length - 1] > 0)
+            {
+                MessageBox.Show("Оценка группы факторов произведена успешно");
+                this.Close();
             }
 
             CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);

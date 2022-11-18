@@ -51,6 +51,7 @@
             // 
             // lbGroupFactors
             // 
+            this.lbGroupFactors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbGroupFactors.FormattingEnabled = true;
             this.lbGroupFactors.Items.AddRange(new object[] {
             "Обуславливаемые характером обрабатываемой информации ",
@@ -60,7 +61,7 @@
             "Обуславливаемые организацией работы АСОД"});
             this.lbGroupFactors.Location = new System.Drawing.Point(27, 64);
             this.lbGroupFactors.Name = "lbGroupFactors";
-            this.lbGroupFactors.Size = new System.Drawing.Size(336, 95);
+            this.lbGroupFactors.Size = new System.Drawing.Size(336, 93);
             this.lbGroupFactors.TabIndex = 1;
             this.lbGroupFactors.SelectedIndexChanged += new System.EventHandler(this.lbGroupFactors_SelectedIndexChanged);
             // 

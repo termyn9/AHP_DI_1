@@ -43,5 +43,14 @@ namespace Diplom
                 calcCoeff.Show();
             }
         }
+
+        private void cbDB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDB.SelectedIndex == 0)
+            {
+                DBGroupFactors dBGroupFactors = new DBGroupFactors();
+                dBGroupFactors.Show();
+            }
+        }
     }
 }

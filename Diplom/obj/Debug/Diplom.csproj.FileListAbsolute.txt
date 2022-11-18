@@ -13,3 +13,9 @@ C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.CalcGroupFactor.resou
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.CalcFactor.resources
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.CalcCoeff.resources
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.ResultForm.resources
+C:\Users\Admin\source\repos\Diplom\Diplom\bin\Debug\EntityFramework.dll
+C:\Users\Admin\source\repos\Diplom\Diplom\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\source\repos\Diplom\Diplom\bin\Debug\EntityFramework.xml
+C:\Users\Admin\source\repos\Diplom\Diplom\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.DBGroupFactors.resources
+C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.csproj.CopyComplete

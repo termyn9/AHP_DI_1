@@ -32,6 +32,9 @@
             this.lbGroupFactor = new System.Windows.Forms.ListBox();
             this.dGVGroupFactor = new System.Windows.Forms.DataGridView();
             this.bReadyGroupFactor = new System.Windows.Forms.Button();
+            this.lVGroupFactors = new System.Windows.Forms.ListView();
+            this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dGVGroupFactor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,12 +53,12 @@
             this.lbGroupFactor.FormattingEnabled = true;
             this.lbGroupFactor.HorizontalExtent = 4;
             this.lbGroupFactor.Items.AddRange(new object[] {
-            "1. Обуславливаемые характером обрабатываемой информации ",
-            "2. Обуславливаемые архитектурой АСОД",
-            "3. Обуславливаемые условиями функционирования  АСОД",
-            "4. Обуславливаемые технологией обработки информации",
-            "5. Обуславливаемые организацией работы АСОД"});
-            this.lbGroupFactor.Location = new System.Drawing.Point(27, 53);
+            "Обуславливаемые характером обрабатываемой информации ",
+            "Обуславливаемые архитектурой АСОД",
+            "Обуславливаемые условиями функционирования  АСОД",
+            "Обуславливаемые технологией обработки информации",
+            "Обуславливаемые организацией работы АСОД"});
+            this.lbGroupFactor.Location = new System.Drawing.Point(49, 314);
             this.lbGroupFactor.MultiColumn = true;
             this.lbGroupFactor.Name = "lbGroupFactor";
             this.lbGroupFactor.Size = new System.Drawing.Size(325, 95);
@@ -65,7 +68,7 @@
             // 
             this.dGVGroupFactor.AllowUserToOrderColumns = true;
             this.dGVGroupFactor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVGroupFactor.Location = new System.Drawing.Point(379, 12);
+            this.dGVGroupFactor.Location = new System.Drawing.Point(388, 12);
             this.dGVGroupFactor.Name = "dGVGroupFactor";
             this.dGVGroupFactor.Size = new System.Drawing.Size(400, 190);
             this.dGVGroupFactor.TabIndex = 2;
@@ -81,11 +84,34 @@
             this.bReadyGroupFactor.UseVisualStyleBackColor = true;
             this.bReadyGroupFactor.Click += new System.EventHandler(this.bReadyGroupFactor_Click);
             // 
+            // lVGroupFactors
+            // 
+            this.lVGroupFactors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnNumber,
+            this.columnTitle});
+            this.lVGroupFactors.HideSelection = false;
+            this.lVGroupFactors.Location = new System.Drawing.Point(12, 49);
+            this.lVGroupFactors.Name = "lVGroupFactors";
+            this.lVGroupFactors.Size = new System.Drawing.Size(361, 137);
+            this.lVGroupFactors.TabIndex = 4;
+            this.lVGroupFactors.UseCompatibleStateImageBehavior = false;
+            this.lVGroupFactors.View = System.Windows.Forms.View.Details;
+            // 
+            // columnNumber
+            // 
+            this.columnNumber.Text = "";
+            // 
+            // columnTitle
+            // 
+            this.columnTitle.Text = "Группа факторов";
+            this.columnTitle.Width = 225;
+            // 
             // CalcGroupFactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lVGroupFactors);
             this.Controls.Add(this.bReadyGroupFactor);
             this.Controls.Add(this.dGVGroupFactor);
             this.Controls.Add(this.lbGroupFactor);
@@ -105,5 +131,8 @@
         private System.Windows.Forms.ListBox lbGroupFactor;
         private System.Windows.Forms.DataGridView dGVGroupFactor;
         private System.Windows.Forms.Button bReadyGroupFactor;
+        private System.Windows.Forms.ListView lVGroupFactors;
+        private System.Windows.Forms.ColumnHeader columnNumber;
+        private System.Windows.Forms.ColumnHeader columnTitle;
     }
 }
