@@ -15,6 +15,7 @@ namespace Diplom
     {
         
         double[,] PrioritiesGroupFactor;
+        double[] arraySI = { 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49 };
         List<string> ListGroupFactor;
         List<string> valuesAutoFill = new List<string>() { "2", "3", "4", "5", "6", "7", "8", "9", "1/9", "1/8", "1/7", "1/6", "1/5", "1/4", "1/3", "1/2" };
         List<string> valuesGroup = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "1/2", "1/3", "1/4", "1/5", "1/6", "1/7", "1/8", "1/9" };
@@ -31,6 +32,7 @@ namespace Diplom
             this.ListGroupFactor = lbGroupFactor.Items.Cast<String>().ToList();
             this.PrioritiesGroupFactor = new double[ListGroupFactor.Count, ListGroupFactor.Count];
 
+
             for (int i = 0; i < ListGroupFactor.Count; i++)
             {
                 ListViewItem group = new ListViewItem((i + 1).ToString());
@@ -38,6 +40,8 @@ namespace Diplom
                 group.SubItems.Add(ListGroupFactor[i]);
                 lVGroupFactors.Items.Add(group);
             }
+
+            int a = lVGroupFactors.Items.Count;
 
             lbGroupFactor.MultiColumn = true;
 
@@ -118,19 +122,53 @@ namespace Diplom
             for (int i = 0; i < ListGroupFactor.Count; i++)
             {
                 GroupFactor groupFactor = new GroupFactor();
+                groupFactor.Number = i + 1;
                 groupFactor.Title = ListGroupFactor[i];
                 groupFactor.Weight = sumResultArray[i];
                 db.Groups.Add(groupFactor);
             }
             db.SaveChanges();
 
+            double IS = calculateIS(ListGroupFactor.Count, PrioritiesGroupFactor, sumResultArray);
+            tbIS.Text = IS.ToString();
+
+            double SI = (IS / arraySI[ListGroupFactor.Count - 1]) * 100;
+            tbOS.Text = SI.ToString();
+
             if (sumResultArray[sumResultArray.Length - 1] > 0)
             {
                 MessageBox.Show("Оценка группы факторов произведена успешно");
-                this.Close();
             }
 
             CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);
+
+        }
+
+        public static double calculateIS(int sizeMatrix, double[,] matrixPrioritis, double[] mainVector)
+        {
+            double IS = 0;
+            double[] vectorY = new double[sizeMatrix];
+            double sumVectorY = 0;
+            double lambdaMax = 0;
+
+            for (int i = 0; i < sizeMatrix; i++)
+            {
+                for (int j = 0; j < sizeMatrix; j++)
+                {
+                    vectorY[i] += matrixPrioritis[i, j] * mainVector[j];
+                }
+            }
+
+            for (int i = 0; i < sizeMatrix; i++)
+            {
+                vectorY[i] /= mainVector[i];
+                sumVectorY += vectorY[i];
+            }
+
+            lambdaMax = sumVectorY / sizeMatrix;
+
+            IS = (lambdaMax - sizeMatrix) / (sizeMatrix - 1);
+            return IS;
         }
 
         private void CalcGroupFactor_Load(object sender, EventArgs e)

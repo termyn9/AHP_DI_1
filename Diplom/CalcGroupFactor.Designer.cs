@@ -35,6 +35,10 @@
             this.lVGroupFactors = new System.Windows.Forms.ListView();
             this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lIS = new System.Windows.Forms.Label();
+            this.tbIS = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbOS = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVGroupFactor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,11 +62,12 @@
             "Обуславливаемые условиями функционирования  АСОД",
             "Обуславливаемые технологией обработки информации",
             "Обуславливаемые организацией работы АСОД"});
-            this.lbGroupFactor.Location = new System.Drawing.Point(49, 314);
+            this.lbGroupFactor.Location = new System.Drawing.Point(12, 428);
             this.lbGroupFactor.MultiColumn = true;
             this.lbGroupFactor.Name = "lbGroupFactor";
-            this.lbGroupFactor.Size = new System.Drawing.Size(325, 95);
+            this.lbGroupFactor.Size = new System.Drawing.Size(10, 4);
             this.lbGroupFactor.TabIndex = 1;
+            this.lbGroupFactor.Visible = false;
             // 
             // dGVGroupFactor
             // 
@@ -106,11 +111,47 @@
             this.columnTitle.Text = "Группа факторов";
             this.columnTitle.Width = 225;
             // 
+            // lIS
+            // 
+            this.lIS.AutoSize = true;
+            this.lIS.Location = new System.Drawing.Point(12, 233);
+            this.lIS.Name = "lIS";
+            this.lIS.Size = new System.Drawing.Size(139, 13);
+            this.lIS.TabIndex = 5;
+            this.lIS.Text = "Индекс согласованности:";
+            // 
+            // tbIS
+            // 
+            this.tbIS.Location = new System.Drawing.Point(15, 258);
+            this.tbIS.Name = "tbIS";
+            this.tbIS.Size = new System.Drawing.Size(130, 20);
+            this.tbIS.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 299);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ОС:";
+            // 
+            // tbOS
+            // 
+            this.tbOS.Location = new System.Drawing.Point(12, 328);
+            this.tbOS.Name = "tbOS";
+            this.tbOS.Size = new System.Drawing.Size(130, 20);
+            this.tbOS.TabIndex = 8;
+            // 
             // CalcGroupFactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbOS);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbIS);
+            this.Controls.Add(this.lIS);
             this.Controls.Add(this.lVGroupFactors);
             this.Controls.Add(this.bReadyGroupFactor);
             this.Controls.Add(this.dGVGroupFactor);
@@ -134,5 +175,9 @@
         private System.Windows.Forms.ListView lVGroupFactors;
         private System.Windows.Forms.ColumnHeader columnNumber;
         private System.Windows.Forms.ColumnHeader columnTitle;
+        private System.Windows.Forms.Label lIS;
+        private System.Windows.Forms.TextBox tbIS;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbOS;
     }
 }

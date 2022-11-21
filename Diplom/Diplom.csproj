@@ -89,6 +89,12 @@
     <Compile Include="CalcGroupFactor.Designer.cs">
       <DependentUpon>CalcGroupFactor.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBFactors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBFactors.Designer.cs">
+      <DependentUpon>DBFactors.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB\CoeffContext.cs" />
     <Compile Include="DBGroupFactors.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,7 @@
     <Compile Include="DBGroupFactors.Designer.cs">
       <DependentUpon>DBGroupFactors.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\Factor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CalcGroupFactor.resx">
       <DependentUpon>CalcGroupFactor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBFactors.resx">
+      <DependentUpon>DBFactors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DBGroupFactors.resx">
       <DependentUpon>DBGroupFactors.cs</DependentUpon>

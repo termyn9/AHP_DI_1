@@ -90,7 +90,8 @@
             // 
             this.cbDB.FormattingEnabled = true;
             this.cbDB.Items.AddRange(new object[] {
-            "Группы факторов"});
+            "Группы факторов",
+            "Факторы"});
             this.cbDB.Location = new System.Drawing.Point(238, 48);
             this.cbDB.Name = "cbDB";
             this.cbDB.Size = new System.Drawing.Size(121, 21);

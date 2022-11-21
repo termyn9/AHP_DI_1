@@ -19,3 +19,4 @@ C:\Users\Admin\source\repos\Diplom\Diplom\bin\Debug\EntityFramework.xml
 C:\Users\Admin\source\repos\Diplom\Diplom\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.DBGroupFactors.resources
 C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.csproj.CopyComplete
+C:\Users\Admin\source\repos\Diplom\Diplom\obj\Debug\Diplom.DBFactors.resources

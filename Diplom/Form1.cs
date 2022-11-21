@@ -51,6 +51,11 @@ namespace Diplom
                 DBGroupFactors dBGroupFactors = new DBGroupFactors();
                 dBGroupFactors.Show();
             }
+            else
+            {
+                DBFactors dBFactors = new DBFactors();
+                dBFactors.Show();
+            }
         }
     }
 }

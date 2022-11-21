@@ -8,23 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.ComponentModel.DataAnnotations;
 
 namespace Diplom
 {
-    public partial class DBGroupFactors : Form
+    public partial class DBFactors : Form
     {
         CoeffContext db;
-        public DBGroupFactors()
+        public DBFactors()
         {
             InitializeComponent();
 
             db = new CoeffContext();
-            db.Groups.Load();
+            db.Factors.Load();
 
-            dgvDBGroupsFactor.DataSource = db.Groups.Local.ToBindingList();
-            dgvDBGroupsFactor.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDBGroupsFactor.AllowUserToAddRows = false;
+            dgvFactors.DataSource = db.Factors.Local.ToBindingList();
+            dgvFactors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFactors.AllowUserToAddRows = false;
         }
     }
 }

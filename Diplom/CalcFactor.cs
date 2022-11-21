@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Diplom.DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,8 @@ namespace Diplom
 
         List<string> ListFactors;
         double[,] PrioritiesFactors;
+
+        CoeffContext db;
 
         public CalcFactor(Form calcGroupFactor, List<string> ListGroupFactor, double[] sumResultArray)
         {
@@ -47,8 +51,6 @@ namespace Diplom
                 dGVFactors.Rows[i].Cells[i].Value = "1";
                 dGVFactors.AllowUserToAddRows = false;
             }
-
-
         }
 
         private void dGVFactors_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -129,6 +131,20 @@ namespace Diplom
                 sumResultArray[i] += sumVectorArray[i] / sumMainVector;
                 dGVFactors[dGVFactors.ColumnCount - 1, i].Value = sumResultArray[i];
             }
+
+            // === Добавление в БД === //
+
+            //for (int i = 0; i < ListFactors.Count; i++)
+            //{
+            //    Factor factor = new Factor();
+            //    GroupFactor groupFactor = new GroupFactor();
+            //    groupFactor.Number = i + 1;
+            //    groupFactor.Title = ListFactors[i];
+            //    groupFactor.Weight = sumResultArray[i];
+            //    db.Factors.Add(factor);
+            //}
+
+            //db.SaveChanges();
         }
     }
 }

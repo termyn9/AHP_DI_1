@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diplom.DB;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Diplom
         { }
 
         public DbSet<GroupFactor> Groups { get; set; }
+        public DbSet<Factor> Factors { get; set; }
     }
 }
