@@ -23,11 +23,19 @@ namespace Diplom
         List<string> ListFactors;
         double[,] PrioritiesFactors;
 
+        int countGroup = 0;
+
         CoeffContext db;
 
         public CalcFactor(Form calcGroupFactor, List<string> ListGroupFactor, double[] sumResultArray)
         {
             InitializeComponent();
+            lbGroupFactors.SetSelected(0, true);
+
+            // БД
+            db = new CoeffContext();
+            db.Factors.Load();
+
             this.FormGroupFactors = calcGroupFactor;
             this.ListGroupFactors = ListGroupFactor;
             this.WeightsGroupFactors = sumResultArray;
@@ -50,6 +58,11 @@ namespace Diplom
                 dGVFactors.Columns.RemoveAt(ListFactors.Count);
                 dGVFactors.Rows[i].Cells[i].Value = "1";
                 dGVFactors.AllowUserToAddRows = false;
+            }
+
+            for (int i = 0; i < ListFactors.Count; i++)
+            {
+                dgvFactorsWeight.Rows.Add();
             }
         }
 
@@ -97,6 +110,7 @@ namespace Diplom
 
         private void bReadyFactors_Click(object sender, EventArgs e)
         {
+
             for (int i = 0; i < ListFactors.Count; i++)
             {
                 for (int j = 0; j < ListFactors.Count; j++)
@@ -117,10 +131,6 @@ namespace Diplom
             double[] sumResultArray = new double[ListFactors.Count];
             double sumMainVector = 0;
 
-            dGVFactors.Columns.Add("sumstr", "Вес");
-            dGVFactors.Columns[dGVFactors.ColumnCount - 1].HeaderText = "Вес";
-            dGVFactors.Columns[dGVFactors.ColumnCount - 1].Width = 70;
-
             for (int j = 0; j < ListFactors.Count; j++)
             {
                 sumMainVector += sumVectorArray[j];
@@ -129,22 +139,44 @@ namespace Diplom
             for (int i = 0; i < ListFactors.Count; i++)
             {
                 sumResultArray[i] += sumVectorArray[i] / sumMainVector;
-                dGVFactors[dGVFactors.ColumnCount - 1, i].Value = sumResultArray[i];
+                //dgvFactorsWeight[0, i].Value = (i + 1).ToString();
+                //dGVFactors[dGVFactors.ColumnCount - 1, i].Value = sumResultArray[i];
             }
 
             // === Добавление в БД === //
 
-            //for (int i = 0; i < ListFactors.Count; i++)
-            //{
-            //    Factor factor = new Factor();
-            //    GroupFactor groupFactor = new GroupFactor();
-            //    groupFactor.Number = i + 1;
-            //    groupFactor.Title = ListFactors[i];
-            //    groupFactor.Weight = sumResultArray[i];
-            //    db.Factors.Add(factor);
-            //}
+            for (int i = 0; i < ListFactors.Count; i++)
+            {
+                Factor factor = new Factor();
+                factor.ID_GroupFactor = countGroup + 1;
+                factor.Number = i + 1;
+                factor.Title = ListFactors[i];
+                factor.Weight = sumResultArray[i];
+                db.Factors.Add(factor);
+            }
+            db.SaveChanges();
 
-            //db.SaveChanges();
+            if (countGroup < lbGroupFactors.Items.Count - 1)
+            {
+                bReadyFactors.Text = "Далее";
+                countGroup++;
+                lbGroupFactors.SetSelected(countGroup, true);
+                
+                for (int i = 0; i < ListFactors.Count; i++)
+                {
+                    dgvFactorsWeight[countGroup - 1, i].Value = sumResultArray[i];
+                }
+            }
+            else if (countGroup == lbGroupFactors.Items.Count - 1)
+            {
+                bReadyFactors.Text = "Готово";
+                for (int i = 0; i < ListFactors.Count; i++)
+                {
+                    dgvFactorsWeight[countGroup, i].Value = sumResultArray[i];
+                }
+                MessageBox.Show("Оценка факторов произведена успешно");
+                this.Close();
+            }
         }
     }
 }

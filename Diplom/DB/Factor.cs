@@ -10,6 +10,7 @@ namespace Diplom.DB
      class Factor
     {
             [Key] public int ID_Factor{ get; set; }
+            public int ID_GroupFactor { get; set; }
             public int Number { get; set; }
             public string Title { get; set; }
             public double Weight { get; set; }

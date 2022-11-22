@@ -16,6 +16,7 @@ namespace Diplom
         List<string> ListFactors;
         int countGroup = 0;
         int countFactor = 0;
+        double valueRB = 0;
 
         public CalcCoeff()
         {
@@ -36,7 +37,6 @@ namespace Diplom
 
         private void bReady_Click(object sender, EventArgs e)
         {
-            rbVeryHigh.Checked = true;
             if (countFactor == ListFactors.Count - 1 && countGroup != ListGroupFactors.Count - 1)
             {
                 countGroup++;
@@ -55,6 +55,10 @@ namespace Diplom
                 lbFactor.SetSelected(countFactor, true);
             }
 
+            if (rbVeryHigh.Checked) { valueRB = 1; }
+            else if (rbHigh.Checked) { valueRB = 0.75; } 
+            else if (rbMedium.Checked) { valueRB = 0.5; } 
+            else { valueRB = 0.25; }
         }
     }
 }

@@ -41,8 +41,6 @@ namespace Diplom
                 lVGroupFactors.Items.Add(group);
             }
 
-            int a = lVGroupFactors.Items.Count;
-
             lbGroupFactor.MultiColumn = true;
 
             dGVGroupFactor.RowCount = ListGroupFactor.Count + 1;

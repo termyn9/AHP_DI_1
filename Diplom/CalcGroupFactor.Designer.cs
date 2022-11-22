@@ -97,7 +97,7 @@
             this.lVGroupFactors.HideSelection = false;
             this.lVGroupFactors.Location = new System.Drawing.Point(12, 49);
             this.lVGroupFactors.Name = "lVGroupFactors";
-            this.lVGroupFactors.Size = new System.Drawing.Size(361, 137);
+            this.lVGroupFactors.Size = new System.Drawing.Size(361, 153);
             this.lVGroupFactors.TabIndex = 4;
             this.lVGroupFactors.UseCompatibleStateImageBehavior = false;
             this.lVGroupFactors.View = System.Windows.Forms.View.Details;
@@ -132,15 +132,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 299);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.Size = new System.Drawing.Size(158, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "ОС:";
+            this.label1.Text = "Отношение согласованности:";
             // 
             // tbOS
             // 
             this.tbOS.Location = new System.Drawing.Point(12, 328);
             this.tbOS.Name = "tbOS";
-            this.tbOS.Size = new System.Drawing.Size(130, 20);
+            this.tbOS.Size = new System.Drawing.Size(155, 20);
             this.tbOS.TabIndex = 8;
             // 
             // CalcGroupFactor
