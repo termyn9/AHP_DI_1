@@ -38,6 +38,13 @@
             this.rbMedium = new System.Windows.Forms.RadioButton();
             this.rbLow = new System.Windows.Forms.RadioButton();
             this.bReady = new System.Windows.Forms.Button();
+            this.dgvFactorsWatch = new System.Windows.Forms.DataGridView();
+            this.dgvGroupFactorsWatch = new System.Windows.Forms.DataGridView();
+            this.bCalculateCoeff = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbCoeffConcord = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactorsWatch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupFactorsWatch)).BeginInit();
             this.SuspendLayout();
             // 
             // lGroupFactors
@@ -148,11 +155,61 @@
             this.bReady.UseVisualStyleBackColor = true;
             this.bReady.Click += new System.EventHandler(this.bReady_Click);
             // 
+            // dgvFactorsWatch
+            // 
+            this.dgvFactorsWatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFactorsWatch.Location = new System.Drawing.Point(640, 202);
+            this.dgvFactorsWatch.Name = "dgvFactorsWatch";
+            this.dgvFactorsWatch.Size = new System.Drawing.Size(53, 150);
+            this.dgvFactorsWatch.TabIndex = 10;
+            this.dgvFactorsWatch.Visible = false;
+            // 
+            // dgvGroupFactorsWatch
+            // 
+            this.dgvGroupFactorsWatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGroupFactorsWatch.Location = new System.Drawing.Point(735, 202);
+            this.dgvGroupFactorsWatch.Name = "dgvGroupFactorsWatch";
+            this.dgvGroupFactorsWatch.Size = new System.Drawing.Size(53, 150);
+            this.dgvGroupFactorsWatch.TabIndex = 11;
+            this.dgvGroupFactorsWatch.Visible = false;
+            // 
+            // bCalculateCoeff
+            // 
+            this.bCalculateCoeff.Location = new System.Drawing.Point(27, 380);
+            this.bCalculateCoeff.Name = "bCalculateCoeff";
+            this.bCalculateCoeff.Size = new System.Drawing.Size(75, 23);
+            this.bCalculateCoeff.TabIndex = 12;
+            this.bCalculateCoeff.Text = "Рассчитать ";
+            this.bCalculateCoeff.UseVisualStyleBackColor = true;
+            this.bCalculateCoeff.Visible = false;
+            this.bCalculateCoeff.Click += new System.EventHandler(this.bCalculateCoeff_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(259, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Коэффициент конкордации:";
+            // 
+            // tbCoeffConcord
+            // 
+            this.tbCoeffConcord.Location = new System.Drawing.Point(262, 233);
+            this.tbCoeffConcord.Name = "tbCoeffConcord";
+            this.tbCoeffConcord.Size = new System.Drawing.Size(146, 20);
+            this.tbCoeffConcord.TabIndex = 14;
+            // 
             // CalcCoeff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbCoeffConcord);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bCalculateCoeff);
+            this.Controls.Add(this.dgvGroupFactorsWatch);
+            this.Controls.Add(this.dgvFactorsWatch);
             this.Controls.Add(this.bReady);
             this.Controls.Add(this.rbLow);
             this.Controls.Add(this.rbMedium);
@@ -165,6 +222,8 @@
             this.Controls.Add(this.lGroupFactors);
             this.Name = "CalcCoeff";
             this.Text = "CalcCoeff";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFactorsWatch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroupFactorsWatch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +241,10 @@
         private System.Windows.Forms.RadioButton rbMedium;
         private System.Windows.Forms.RadioButton rbLow;
         private System.Windows.Forms.Button bReady;
+        private System.Windows.Forms.DataGridView dgvFactorsWatch;
+        private System.Windows.Forms.DataGridView dgvGroupFactorsWatch;
+        private System.Windows.Forms.Button bCalculateCoeff;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbCoeffConcord;
     }
 }

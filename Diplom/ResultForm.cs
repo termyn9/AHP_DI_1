@@ -12,9 +12,10 @@ namespace Diplom
 {
     public partial class ResultForm : Form
     {
-        public ResultForm()
+        public ResultForm(double W)
         {
             InitializeComponent();
+            lW.Text = W.ToString();
         }
     }
 }

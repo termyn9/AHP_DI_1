@@ -29,23 +29,33 @@
         private void InitializeComponent()
         {
             this.lCoeff = new System.Windows.Forms.Label();
+            this.lW = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lCoeff
             // 
             this.lCoeff.AutoSize = true;
-            this.lCoeff.Location = new System.Drawing.Point(12, 9);
+            this.lCoeff.Location = new System.Drawing.Point(6, 70);
             this.lCoeff.MaximumSize = new System.Drawing.Size(180, 25);
             this.lCoeff.Name = "lCoeff";
             this.lCoeff.Size = new System.Drawing.Size(169, 13);
             this.lCoeff.TabIndex = 0;
             this.lCoeff.Text = "Коэффициент защищенности = ";
             // 
+            // lW
+            // 
+            this.lW.AutoSize = true;
+            this.lW.Location = new System.Drawing.Point(181, 70);
+            this.lW.Name = "lW";
+            this.lW.Size = new System.Drawing.Size(0, 13);
+            this.lW.TabIndex = 1;
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 178);
+            this.Controls.Add(this.lW);
             this.Controls.Add(this.lCoeff);
             this.Name = "ResultForm";
             this.Text = "ResultForm";
@@ -57,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label lCoeff;
+        private System.Windows.Forms.Label lW;
     }
 }
