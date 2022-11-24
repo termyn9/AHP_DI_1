@@ -18,11 +18,11 @@ namespace Diplom
         int countGroup = 0;
         int countFactor = 0;
         double valueRB = 0;
-        int k = 0;
+        double W_all = 0;
 
         double[] sumCoeffFactorWeight = new double[3];
-        List<double> resultCoeff = new List<double>();
 
+        List<double> arrayW = new List<double>();
         List<double> arrayValueRB = new List<double>();
 
         CoeffContext db;
@@ -85,23 +85,29 @@ namespace Diplom
             }
         }
 
-        private void bCalculateCoeff_Click(object sender, EventArgs e)
+        public double CoeffOf5Rows(int i_W, int j_W)
         {
-            // Расчет коэффициента защищенности //
-            for (int i = 0; i < 5; i++)
+            int k = 0;
+            double W = 0;
+            List<double> resultCoeff = new List<double>();
+            for (int i = i_W; i < i_W + 5; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = j_W; j < j_W + 3; j++)
                 {
                     resultCoeff.Add(arrayValueRB[k] * Convert.ToDouble(dgvFactorsWatch.Rows[j].Cells[4].Value) * Convert.ToDouble(dgvGroupFactorsWatch.Rows[i].Cells[3].Value));
                     k++;
                 }
+                j_W += 3;
             }
+            return W = resultCoeff.Sum(x => Convert.ToDouble(x));
+        }
 
-            double W = resultCoeff.Sum(x => Convert.ToDouble(x));
-            ResultForm resultForm = new ResultForm(W);
-            resultForm.Show();
+        private void bCalculateCoeff_Click(object sender, EventArgs e)
+        {
+            // Расчет коэффициента защищенности //
 
-            // Расчет коэффициента конкордации // 
+            
+
             string searchValue = "1";
             List<int> indexFirstGroup = new List<int>();
 
@@ -113,10 +119,40 @@ namespace Diplom
                 }
             }
 
-            double[] S = new double[5];
+            
             for (int i = 0; i < dgvGroupFactorsWatch.Rows.Count; i++)
             {
-                S[i]
+                for (int j = 0; j < indexFirstGroup.Count; j++)
+                {
+                    if (i == indexFirstGroup[j])
+                    {
+                        arrayW.Add(CoeffOf5Rows(i, i * 3));
+                    }
+                }
+            }
+
+            W_all = arrayW.Sum(x => Convert.ToDouble(x)) / arrayW.Count;
+            ResultForm resultForm = new ResultForm(W_all);
+            resultForm.Show();
+
+
+            // Расчет коэффициента конкордации // 
+
+            double[] S = new double[5];
+
+            List<double> WeightOfGroup = new List<double>();
+            for (int count = 0; count < dgvGroupFactorsWatch.Rows.Count / 5; count++)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    WeightOfGroup.Add(Convert.ToDouble(dgvGroupFactorsWatch.Rows[i].Cells[3].Value));
+                }
+                double maxValue = WeightOfGroup.Max();
+                S[1] = WeightOfGroup.IndexOf(maxValue) + 1;
+            }
+
+            for (int i = 0; i < dgvGroupFactorsWatch.Rows.Count; i++)
+            {
             }
         }
     }
