@@ -140,6 +140,10 @@ namespace Diplom
 
             CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);
 
+            MessageBox.Show("Спасибо, что поучавствовали в оценке!");
+            this.Close();
+            calcFactor.Show();
+
         }
 
         public static double calculateIS(int sizeMatrix, double[,] matrixPrioritis, double[] mainVector)

@@ -174,7 +174,7 @@ namespace Diplom
                 {
                     dgvFactorsWeight[countGroup, i].Value = sumResultArray[i];
                 }
-                MessageBox.Show("Оценка факторов произведена успешно");
+                MessageBox.Show("Спасибо, что поучавствовали в оценке факторов!");
                 this.Close();
             }
         }

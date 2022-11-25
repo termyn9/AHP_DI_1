@@ -73,8 +73,8 @@ namespace Diplom
             }
 
             if (rbVeryHigh.Checked) { valueRB = 1; }
-            else if (rbHigh.Checked) { valueRB = 0.75; } 
-            else if (rbMedium.Checked) { valueRB = 0.5; } 
+            else if (rbHigh.Checked) { valueRB = 0.75; }
+            else if (rbMedium.Checked) { valueRB = 0.5; }
             else { valueRB = 0.25; }
 
             arrayValueRB.Add(valueRB);
@@ -106,8 +106,6 @@ namespace Diplom
         {
             // Расчет коэффициента защищенности //
 
-            
-
             string searchValue = "1";
             List<int> indexFirstGroup = new List<int>();
 
@@ -119,7 +117,7 @@ namespace Diplom
                 }
             }
 
-            
+
             for (int i = 0; i < dgvGroupFactorsWatch.Rows.Count; i++)
             {
                 for (int j = 0; j < indexFirstGroup.Count; j++)
@@ -138,22 +136,53 @@ namespace Diplom
 
             // Расчет коэффициента конкордации // 
 
-            double[] S = new double[5];
-
+            double[,] S_Range = new double[5, dgvGroupFactorsWatch.Rows.Count / 5];
+            double[] S_Factor = new double[5];
+            double S_Result = 0;
+            double W = 0;
             List<double> WeightOfGroup = new List<double>();
+            double maxValue = 0;
+
             for (int count = 0; count < dgvGroupFactorsWatch.Rows.Count / 5; count++)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = count * 5; i < (count + 1) * 5; i++)
                 {
                     WeightOfGroup.Add(Convert.ToDouble(dgvGroupFactorsWatch.Rows[i].Cells[3].Value));
                 }
-                double maxValue = WeightOfGroup.Max();
-                S[1] = WeightOfGroup.IndexOf(maxValue) + 1;
+
+                for (int j = 0; j < 5; j++)
+                {
+                    maxValue = WeightOfGroup.Max();
+                    S_Range[j, count] = WeightOfGroup.IndexOf(maxValue) + 1;
+                    WeightOfGroup[Convert.ToInt32(j)] = 0;
+                }
+
+                for (int i = 0; i < 5; i++)
+                {
+                    WeightOfGroup.RemoveAt(0);
+                }
             }
 
-            for (int i = 0; i < dgvGroupFactorsWatch.Rows.Count; i++)
+            for (int i = 0; i < dgvGroupFactorsWatch.Rows.Count / 5; i++)
             {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (S_Range[j, i] == j + 1)
+                    {
+                        S_Factor[j] += j + 1;
+                    }
+                }
             }
+
+            int M = dgvGroupFactorsWatch.Rows.Count / 5;
+            int A = M * (5 + 1) / 2;
+            for (int i = 0; i < 5; i++)
+            {
+                S_Result += (S_Factor[i] - A) * (S_Factor[i] - A);
+            }
+
+            W = (12 * S_Result) / (M * M * 5 * (5 * 5 - 1));
+            tbCoeffConcord.Text = W.ToString();
         }
     }
 }
