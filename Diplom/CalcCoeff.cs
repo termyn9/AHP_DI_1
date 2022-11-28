@@ -31,10 +31,12 @@ namespace Diplom
         {
             InitializeComponent();
             ListGroupFactors = lbGroupFactors.Items.Cast<String>().ToList();
-            ListFactors = lbFactor.Items.Cast<String>().ToList();
 
-            //int countAllFactorsDB = dgvGroupFactorsWatch.Rows.Count;
-            //int countAllGroupFactorsDB = dgvGroupFactorsWatch.Rows.Count;
+            lbFactor.Items.Add(HelpFunctions.ListBoxFactors[0]);
+            lbFactor.Items.Add(HelpFunctions.ListBoxFactors[1]);
+            lbFactor.Items.Add(HelpFunctions.ListBoxFactors[2]);
+
+            ListFactors = lbFactor.Items.Cast<String>().ToList();
 
             lbGroupFactors.SetSelected(0, true);
             lbFactor.SetSelected(0, true);
@@ -58,6 +60,11 @@ namespace Diplom
             if (countFactor == ListFactors.Count - 1 && countGroup != ListGroupFactors.Count - 1)
             {
                 countGroup++;
+                for (int i = 0; i < 3; i++)
+                {
+                    lbFactor.Items.RemoveAt(i);
+                    lbFactor.Items.Add(HelpFunctions.ListBoxFactors[i + countGroup * 3]);
+                }
                 lbGroupFactors.SetSelected(countGroup, true);
                 countFactor = 0;
                 lbFactor.SetSelected(countFactor, true);
@@ -154,7 +161,7 @@ namespace Diplom
                 {
                     maxValue = WeightOfGroup.Max();
                     S_Range[j, count] = WeightOfGroup.IndexOf(maxValue) + 1;
-                    WeightOfGroup[Convert.ToInt32(j)] = 0;
+                    WeightOfGroup[WeightOfGroup.IndexOf(maxValue)] = 0;
                 }
 
                 for (int i = 0; i < 5; i++)
@@ -163,16 +170,14 @@ namespace Diplom
                 }
             }
 
-            for (int i = 0; i < dgvGroupFactorsWatch.Rows.Count / 5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < dgvGroupFactorsWatch.Rows.Count / 5; j++)
                 {
-                    if (S_Range[j, i] == j + 1)
-                    {
-                        S_Factor[j] += j + 1;
-                    }
+                    S_Factor[i] += S_Range[i, j];
                 }
             }
+            
 
             int M = dgvGroupFactorsWatch.Rows.Count / 5;
             int A = M * (5 + 1) / 2;

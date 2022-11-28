@@ -21,41 +21,46 @@ namespace Diplom
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void группыФакторовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (cbGroupOrFactor.SelectedIndex == 0)
-            {
-                CalcGroupFactor calcGroupFactor = new CalcGroupFactor();
-                calcGroupFactor.Show();
-            }
-            else
-            {
-                CalcFactor calcFactor = new CalcFactor(FormGroupFactors, ListGroupFactors, WeightsGroupFactros);
-                calcFactor.Show();
-            }
+            CalcGroupFactor calcGroupFactor = new CalcGroupFactor();
+            calcGroupFactor.Show();
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void факторовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (cbUserFunction.SelectedIndex == 0)
-            {
-                CalcCoeff calcCoeff = new CalcCoeff();
-                calcCoeff.Show();
-            }
+            CalcFactor calcFactor = new CalcFactor(FormGroupFactors, ListGroupFactors, WeightsGroupFactros);
+            calcFactor.Show();
         }
 
-        private void cbDB_SelectedIndexChanged(object sender, EventArgs e)
+        private void рассчитатьКоэффициентToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (cbDB.SelectedIndex == 0)
-            {
-                DBGroupFactors dBGroupFactors = new DBGroupFactors();
-                dBGroupFactors.Show();
-            }
-            else
-            {
-                DBFactors dBFactors = new DBFactors();
-                dBFactors.Show();
-            }
+            CalcCoeff calcCoeff = new CalcCoeff();
+            calcCoeff.Show();
+        }
+
+        private void группыФакторовToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DBGroupFactors dBGroupFactors = new DBGroupFactors();
+            dBGroupFactors.Show();
+        }
+
+        private void факторыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DBFactors dBFactors = new DBFactors();
+            dBFactors.Show();
+        }
+
+        private void харкиТиповыхСЗИToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CharactersTypesClasses charactersTypesClasses = new CharactersTypesClasses();
+            charactersTypesClasses.Show();
+        }
+
+        private void требованияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CharactersOfClass charactersOfClass = new CharactersOfClass("K2");
+            charactersOfClass.Show();
         }
     }
 }

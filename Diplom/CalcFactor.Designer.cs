@@ -40,6 +40,7 @@
             this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bCoeffTolerant = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVFactors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactorsWeight)).BeginInit();
             this.SuspendLayout();
@@ -81,9 +82,9 @@
             // 
             this.lbFactors.FormattingEnabled = true;
             this.lbFactors.Items.AddRange(new object[] {
-            "Фактор",
-            "Фактор",
-            "Фактор"});
+            "Степень секретности",
+            "Объёмы",
+            "Интенсивность обработки"});
             this.lbFactors.Location = new System.Drawing.Point(386, 62);
             this.lbFactors.Name = "lbFactors";
             this.lbFactors.Size = new System.Drawing.Size(248, 82);
@@ -101,9 +102,9 @@
             // 
             // bReadyFactors
             // 
-            this.bReadyFactors.Location = new System.Drawing.Point(12, 365);
+            this.bReadyFactors.Location = new System.Drawing.Point(12, 351);
             this.bReadyFactors.Name = "bReadyFactors";
-            this.bReadyFactors.Size = new System.Drawing.Size(112, 23);
+            this.bReadyFactors.Size = new System.Drawing.Size(112, 37);
             this.bReadyFactors.TabIndex = 5;
             this.bReadyFactors.Text = "Далее";
             this.bReadyFactors.UseVisualStyleBackColor = true;
@@ -131,33 +132,49 @@
             // col1
             // 
             this.col1.HeaderText = "1-ая";
+            this.col1.MinimumWidth = 6;
             this.col1.Name = "col1";
             // 
             // col2
             // 
             this.col2.HeaderText = "2-ая";
+            this.col2.MinimumWidth = 6;
             this.col2.Name = "col2";
             // 
             // col3
             // 
             this.col3.HeaderText = "3-я";
+            this.col3.MinimumWidth = 6;
             this.col3.Name = "col3";
             // 
             // col4
             // 
             this.col4.HeaderText = "4-ая";
+            this.col4.MinimumWidth = 6;
             this.col4.Name = "col4";
             // 
             // col5
             // 
             this.col5.HeaderText = "5-ая";
+            this.col5.MinimumWidth = 6;
             this.col5.Name = "col5";
+            // 
+            // bCoeffTolerant
+            // 
+            this.bCoeffTolerant.Location = new System.Drawing.Point(519, 340);
+            this.bCoeffTolerant.Name = "bCoeffTolerant";
+            this.bCoeffTolerant.Size = new System.Drawing.Size(146, 48);
+            this.bCoeffTolerant.TabIndex = 7;
+            this.bCoeffTolerant.Text = "Коэффициент толерантности";
+            this.bCoeffTolerant.UseVisualStyleBackColor = true;
+            this.bCoeffTolerant.Click += new System.EventHandler(this.bCoeffTolerant_Click);
             // 
             // CalcFactor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 450);
+            this.ClientSize = new System.Drawing.Size(864, 398);
+            this.Controls.Add(this.bCoeffTolerant);
             this.Controls.Add(this.dgvFactorsWeight);
             this.Controls.Add(this.bReadyFactors);
             this.Controls.Add(this.dGVFactors);
@@ -188,5 +205,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
         private System.Windows.Forms.DataGridViewTextBoxColumn col5;
+        private System.Windows.Forms.Button bCoeffTolerant;
     }
 }

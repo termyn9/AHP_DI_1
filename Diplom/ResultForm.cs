@@ -37,5 +37,19 @@ namespace Diplom
                 lLevelDef.Text = "Слабой защиты";
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (lClassDef.Text == "K1" || lClassDef.Text == "K2" || lClassDef.Text == "K3" || lClassDef.Text == "K4")
+            {
+                CharactersOfClass charactersOfClass = new CharactersOfClass(lClassDef.Text);
+                charactersOfClass.Show();
+            }
+        }
+
+        private void bClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

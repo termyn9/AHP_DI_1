@@ -45,9 +45,10 @@
             // labelGroup
             // 
             this.labelGroup.AutoSize = true;
-            this.labelGroup.Location = new System.Drawing.Point(24, 21);
+            this.labelGroup.Location = new System.Drawing.Point(18, 9);
+            this.labelGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGroup.Name = "labelGroup";
-            this.labelGroup.Size = new System.Drawing.Size(121, 13);
+            this.labelGroup.Size = new System.Drawing.Size(155, 17);
             this.labelGroup.TabIndex = 0;
             this.labelGroup.Text = "Оцениваемые группы:";
             // 
@@ -56,16 +57,18 @@
             this.lbGroupFactor.ColumnWidth = 4;
             this.lbGroupFactor.FormattingEnabled = true;
             this.lbGroupFactor.HorizontalExtent = 4;
+            this.lbGroupFactor.ItemHeight = 16;
             this.lbGroupFactor.Items.AddRange(new object[] {
             "Обуславливаемые характером обрабатываемой информации ",
             "Обуславливаемые архитектурой АСОД",
             "Обуславливаемые условиями функционирования  АСОД",
             "Обуславливаемые технологией обработки информации",
             "Обуславливаемые организацией работы АСОД"});
-            this.lbGroupFactor.Location = new System.Drawing.Point(12, 428);
+            this.lbGroupFactor.Location = new System.Drawing.Point(16, 527);
+            this.lbGroupFactor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbGroupFactor.MultiColumn = true;
             this.lbGroupFactor.Name = "lbGroupFactor";
-            this.lbGroupFactor.Size = new System.Drawing.Size(10, 4);
+            this.lbGroupFactor.Size = new System.Drawing.Size(12, 4);
             this.lbGroupFactor.TabIndex = 1;
             this.lbGroupFactor.Visible = false;
             // 
@@ -73,17 +76,20 @@
             // 
             this.dGVGroupFactor.AllowUserToOrderColumns = true;
             this.dGVGroupFactor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVGroupFactor.Location = new System.Drawing.Point(388, 12);
+            this.dGVGroupFactor.Location = new System.Drawing.Point(521, 43);
+            this.dGVGroupFactor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dGVGroupFactor.Name = "dGVGroupFactor";
-            this.dGVGroupFactor.Size = new System.Drawing.Size(400, 190);
+            this.dGVGroupFactor.RowHeadersWidth = 51;
+            this.dGVGroupFactor.Size = new System.Drawing.Size(533, 234);
             this.dGVGroupFactor.TabIndex = 2;
             this.dGVGroupFactor.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVGroupFactor_CellEndEdit);
             // 
             // bReadyGroupFactor
             // 
-            this.bReadyGroupFactor.Location = new System.Drawing.Point(567, 233);
+            this.bReadyGroupFactor.Location = new System.Drawing.Point(745, 296);
+            this.bReadyGroupFactor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bReadyGroupFactor.Name = "bReadyGroupFactor";
-            this.bReadyGroupFactor.Size = new System.Drawing.Size(107, 45);
+            this.bReadyGroupFactor.Size = new System.Drawing.Size(143, 55);
             this.bReadyGroupFactor.TabIndex = 3;
             this.bReadyGroupFactor.Text = "Готово";
             this.bReadyGroupFactor.UseVisualStyleBackColor = true;
@@ -95,9 +101,10 @@
             this.columnNumber,
             this.columnTitle});
             this.lVGroupFactors.HideSelection = false;
-            this.lVGroupFactors.Location = new System.Drawing.Point(12, 49);
+            this.lVGroupFactors.Location = new System.Drawing.Point(20, 43);
+            this.lVGroupFactors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lVGroupFactors.Name = "lVGroupFactors";
-            this.lVGroupFactors.Size = new System.Drawing.Size(361, 153);
+            this.lVGroupFactors.Size = new System.Drawing.Size(480, 232);
             this.lVGroupFactors.TabIndex = 4;
             this.lVGroupFactors.UseCompatibleStateImageBehavior = false;
             this.lVGroupFactors.View = System.Windows.Forms.View.Details;
@@ -114,40 +121,44 @@
             // lIS
             // 
             this.lIS.AutoSize = true;
-            this.lIS.Location = new System.Drawing.Point(12, 233);
+            this.lIS.Location = new System.Drawing.Point(17, 296);
+            this.lIS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lIS.Name = "lIS";
-            this.lIS.Size = new System.Drawing.Size(139, 13);
+            this.lIS.Size = new System.Drawing.Size(176, 17);
             this.lIS.TabIndex = 5;
             this.lIS.Text = "Индекс согласованности:";
             // 
             // tbIS
             // 
-            this.tbIS.Location = new System.Drawing.Point(15, 258);
+            this.tbIS.Location = new System.Drawing.Point(21, 327);
+            this.tbIS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbIS.Name = "tbIS";
-            this.tbIS.Size = new System.Drawing.Size(130, 20);
+            this.tbIS.Size = new System.Drawing.Size(172, 22);
             this.tbIS.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 299);
+            this.label1.Location = new System.Drawing.Point(17, 381);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 13);
+            this.label1.Size = new System.Drawing.Size(205, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Отношение согласованности:";
             // 
             // tbOS
             // 
-            this.tbOS.Location = new System.Drawing.Point(12, 328);
+            this.tbOS.Location = new System.Drawing.Point(21, 414);
+            this.tbOS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbOS.Name = "tbOS";
-            this.tbOS.Size = new System.Drawing.Size(155, 20);
+            this.tbOS.Size = new System.Drawing.Size(205, 22);
             this.tbOS.TabIndex = 8;
             // 
             // CalcGroupFactor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 458);
             this.Controls.Add(this.tbOS);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbIS);
@@ -157,6 +168,7 @@
             this.Controls.Add(this.dGVGroupFactor);
             this.Controls.Add(this.lbGroupFactor);
             this.Controls.Add(this.labelGroup);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CalcGroupFactor";
             this.Text = "CalcGroupFactor";
             this.Load += new System.EventHandler(this.CalcGroupFactor_Load);

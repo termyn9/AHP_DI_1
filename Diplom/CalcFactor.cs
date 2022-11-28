@@ -45,7 +45,6 @@ namespace Diplom
 
             this.PrioritiesFactors = new double[ListFactors.Count, ListFactors.Count];
 
-
             dGVFactors.RowCount = ListFactors.Count + 1;
             dGVFactors.ColumnCount = ListFactors.Count;
             dGVFactors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -110,7 +109,6 @@ namespace Diplom
 
         private void bReadyFactors_Click(object sender, EventArgs e)
         {
-
             for (int i = 0; i < ListFactors.Count; i++)
             {
                 for (int j = 0; j < ListFactors.Count; j++)
@@ -177,6 +175,18 @@ namespace Diplom
                 MessageBox.Show("Спасибо, что поучавствовали в оценке факторов!");
                 this.Close();
             }
+
+            for (int i = 0; i < 3; i++)
+            {
+                lbFactors.Items.RemoveAt(i);
+                lbFactors.Items.Add(HelpFunctions.ListBoxFactors[i + countGroup * 3]);
+            }
+        }
+
+        private void bCoeffTolerant_Click(object sender, EventArgs e)
+        {
+            CoeffTolerant coeffTolerant = new CoeffTolerant();
+            coeffTolerant.Show();
         }
     }
 }

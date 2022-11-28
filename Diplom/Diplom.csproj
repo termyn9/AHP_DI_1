@@ -57,6 +57,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.NET5.1.0.1\lib\net5.0-windows7.0\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -88,6 +91,24 @@
     </Compile>
     <Compile Include="CalcGroupFactor.Designer.cs">
       <DependentUpon>CalcGroupFactor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharactersOfClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharactersOfClass.Designer.cs">
+      <DependentUpon>CharactersOfClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharactersTypesClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharactersTypesClasses.Designer.cs">
+      <DependentUpon>CharactersTypesClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoeffTolerant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoeffTolerant.Designer.cs">
+      <DependentUpon>CoeffTolerant.cs</DependentUpon>
     </Compile>
     <Compile Include="DBFactors.cs">
       <SubType>Form</SubType>
@@ -127,6 +148,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CalcGroupFactor.resx">
       <DependentUpon>CalcGroupFactor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharactersOfClass.resx">
+      <DependentUpon>CharactersOfClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharactersTypesClasses.resx">
+      <DependentUpon>CharactersTypesClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoeffTolerant.resx">
+      <DependentUpon>CoeffTolerant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DBFactors.resx">
       <DependentUpon>DBFactors.cs</DependentUpon>
