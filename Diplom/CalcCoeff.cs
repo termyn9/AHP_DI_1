@@ -17,6 +17,7 @@ namespace Diplom
         List<string> ListFactors;
         int countGroup = 0;
         int countFactor = 0;
+        int count = 1;
         double valueRB = 0;
         double W_all = 0;
 
@@ -48,6 +49,11 @@ namespace Diplom
             dgvFactorsWatch.DataSource = db.Factors.Local.ToBindingList();
             db.Groups.Load();
             dgvGroupFactorsWatch.DataSource = db.Groups.Local.ToBindingList();
+
+            rbVeryHigh.Text = HelpFunctions.ListBoxValuesFactors[0];
+            rbHigh.Text = HelpFunctions.ListBoxValuesFactors[1];
+            rbMedium.Text = HelpFunctions.ListBoxValuesFactors[2];
+            rbLow.Text = HelpFunctions.ListBoxValuesFactors[3];
         }
 
         private void lbGroupFactors_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,7 +68,7 @@ namespace Diplom
                 countGroup++;
                 for (int i = 0; i < 3; i++)
                 {
-                    lbFactor.Items.RemoveAt(i);
+                    lbFactor.Items.RemoveAt(0);
                     lbFactor.Items.Add(HelpFunctions.ListBoxFactors[i + countGroup * 3]);
                 }
                 lbGroupFactors.SetSelected(countGroup, true);
@@ -77,6 +83,19 @@ namespace Diplom
             {
                 countFactor++;
                 lbFactor.SetSelected(countFactor, true);
+            }
+
+            if (count == 15)
+            {
+                count = 0;
+            }
+            else
+            {
+                rbVeryHigh.Text = HelpFunctions.ListBoxValuesFactors[0 + count * 4];
+                rbHigh.Text = HelpFunctions.ListBoxValuesFactors[1 + count * 4];
+                rbMedium.Text = HelpFunctions.ListBoxValuesFactors[2 + count * 4];
+                rbLow.Text = HelpFunctions.ListBoxValuesFactors[3 + count * 4];
+                count++;
             }
 
             if (rbVeryHigh.Checked) { valueRB = 1; }
@@ -177,7 +196,7 @@ namespace Diplom
                     S_Factor[i] += S_Range[i, j];
                 }
             }
-            
+
 
             int M = dgvGroupFactorsWatch.Rows.Count / 5;
             int A = M * (5 + 1) / 2;
@@ -187,7 +206,7 @@ namespace Diplom
             }
 
             W = (12 * S_Result) / (M * M * 5 * (5 * 5 - 1));
-            tbCoeffConcord.Text = W.ToString();
+            tbCoeffConcord.Text = Math.Round(W, 4).ToString();
         }
     }
 }

@@ -176,9 +176,10 @@ namespace Diplom
                 this.Close();
             }
 
+
             for (int i = 0; i < 3; i++)
             {
-                lbFactors.Items.RemoveAt(i);
+                lbFactors.Items.RemoveAt(0);
                 lbFactors.Items.Add(HelpFunctions.ListBoxFactors[i + countGroup * 3]);
             }
         }

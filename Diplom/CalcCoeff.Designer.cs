@@ -103,9 +103,8 @@
             this.rbVeryHigh.AutoSize = true;
             this.rbVeryHigh.Location = new System.Drawing.Point(15, 214);
             this.rbVeryHigh.Name = "rbVeryHigh";
-            this.rbVeryHigh.Size = new System.Drawing.Size(103, 17);
+            this.rbVeryHigh.Size = new System.Drawing.Size(14, 13);
             this.rbVeryHigh.TabIndex = 5;
-            this.rbVeryHigh.Text = "Очень высокое";
             this.rbVeryHigh.UseVisualStyleBackColor = true;
             // 
             // rbHigh
@@ -113,10 +112,9 @@
             this.rbHigh.AutoSize = true;
             this.rbHigh.Location = new System.Drawing.Point(15, 245);
             this.rbHigh.Name = "rbHigh";
-            this.rbHigh.Size = new System.Drawing.Size(70, 17);
+            this.rbHigh.Size = new System.Drawing.Size(14, 13);
             this.rbHigh.TabIndex = 6;
             this.rbHigh.TabStop = true;
-            this.rbHigh.Text = "Высокое";
             this.rbHigh.UseVisualStyleBackColor = true;
             // 
             // rbMedium
@@ -124,10 +122,9 @@
             this.rbMedium.AutoSize = true;
             this.rbMedium.Location = new System.Drawing.Point(15, 280);
             this.rbMedium.Name = "rbMedium";
-            this.rbMedium.Size = new System.Drawing.Size(68, 17);
+            this.rbMedium.Size = new System.Drawing.Size(14, 13);
             this.rbMedium.TabIndex = 7;
             this.rbMedium.TabStop = true;
-            this.rbMedium.Text = "Среднее";
             this.rbMedium.UseVisualStyleBackColor = true;
             // 
             // rbLow
@@ -135,10 +132,9 @@
             this.rbLow.AutoSize = true;
             this.rbLow.Location = new System.Drawing.Point(15, 311);
             this.rbLow.Name = "rbLow";
-            this.rbLow.Size = new System.Drawing.Size(83, 17);
+            this.rbLow.Size = new System.Drawing.Size(14, 13);
             this.rbLow.TabIndex = 8;
             this.rbLow.TabStop = true;
-            this.rbLow.Text = "Невысокое";
             this.rbLow.UseVisualStyleBackColor = true;
             // 
             // bReady

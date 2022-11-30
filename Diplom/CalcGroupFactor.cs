@@ -128,10 +128,10 @@ namespace Diplom
             db.SaveChanges();
 
             double IS = calculateIS(ListGroupFactor.Count, PrioritiesGroupFactor, sumResultArray);
-            tbIS.Text = IS.ToString();
+            tbIS.Text = Math.Round(IS, 4).ToString();
 
             double SI = (IS / arraySI[ListGroupFactor.Count - 1]) * 100;
-            tbOS.Text = SI.ToString();
+            tbOS.Text = Math.Round(SI, 4).ToString();
 
             if (sumResultArray[sumResultArray.Length - 1] > 0)
             {
