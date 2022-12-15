@@ -65,17 +65,19 @@
             "Обуславливаемые архитектурой АСОД",
             "Обуславливаемые условиями функционирования  АСОД",
             "Обуславливаемые технологией обработки информации",
-            "Обуславливаемые организацией работы АСОД"});
+            "Обуславливаемые организацией работы АСОД",
+            "Обуславливаемые влиянием явлений техногенного характера",
+            "Обуславливаемые возможностью хищения информации с применением ТСР"});
             this.lbGroupFactors.Location = new System.Drawing.Point(15, 45);
             this.lbGroupFactors.Name = "lbGroupFactors";
-            this.lbGroupFactors.Size = new System.Drawing.Size(336, 93);
+            this.lbGroupFactors.Size = new System.Drawing.Size(411, 106);
             this.lbGroupFactors.TabIndex = 1;
             this.lbGroupFactors.SelectedIndexChanged += new System.EventHandler(this.lbGroupFactors_SelectedIndexChanged);
             // 
             // lFactor
             // 
             this.lFactor.AutoSize = true;
-            this.lFactor.Location = new System.Drawing.Point(367, 14);
+            this.lFactor.Location = new System.Drawing.Point(490, 9);
             this.lFactor.Name = "lFactor";
             this.lFactor.Size = new System.Drawing.Size(50, 13);
             this.lFactor.TabIndex = 2;
@@ -84,9 +86,9 @@
             // lbFactor
             // 
             this.lbFactor.FormattingEnabled = true;
-            this.lbFactor.Location = new System.Drawing.Point(370, 45);
+            this.lbFactor.Location = new System.Drawing.Point(493, 43);
             this.lbFactor.Name = "lbFactor";
-            this.lbFactor.Size = new System.Drawing.Size(336, 95);
+            this.lbFactor.Size = new System.Drawing.Size(336, 108);
             this.lbFactor.TabIndex = 3;
             // 
             // lValueFactor
@@ -151,7 +153,7 @@
             // 
             this.dgvFactorsWatch.AllowUserToAddRows = false;
             this.dgvFactorsWatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFactorsWatch.Location = new System.Drawing.Point(790, 202);
+            this.dgvFactorsWatch.Location = new System.Drawing.Point(951, 183);
             this.dgvFactorsWatch.Name = "dgvFactorsWatch";
             this.dgvFactorsWatch.RowHeadersWidth = 51;
             this.dgvFactorsWatch.Size = new System.Drawing.Size(53, 150);
@@ -162,7 +164,7 @@
             // 
             this.dgvGroupFactorsWatch.AllowUserToAddRows = false;
             this.dgvGroupFactorsWatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGroupFactorsWatch.Location = new System.Drawing.Point(735, 202);
+            this.dgvGroupFactorsWatch.Location = new System.Drawing.Point(896, 183);
             this.dgvGroupFactorsWatch.Name = "dgvGroupFactorsWatch";
             this.dgvGroupFactorsWatch.RowHeadersWidth = 51;
             this.dgvGroupFactorsWatch.Size = new System.Drawing.Size(53, 150);
@@ -183,7 +185,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(367, 183);
+            this.label1.Location = new System.Drawing.Point(490, 183);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 13);
             this.label1.TabIndex = 13;
@@ -191,7 +193,7 @@
             // 
             // tbCoeffConcord
             // 
-            this.tbCoeffConcord.Location = new System.Drawing.Point(370, 214);
+            this.tbCoeffConcord.Location = new System.Drawing.Point(493, 214);
             this.tbCoeffConcord.Name = "tbCoeffConcord";
             this.tbCoeffConcord.Size = new System.Drawing.Size(146, 20);
             this.tbCoeffConcord.TabIndex = 14;
@@ -200,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 405);
+            this.ClientSize = new System.Drawing.Size(838, 405);
             this.Controls.Add(this.tbCoeffConcord);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bCalculateCoeff);

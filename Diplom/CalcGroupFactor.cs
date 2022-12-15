@@ -84,7 +84,7 @@ namespace Diplom
             {
                 for (int j = 0; j < ListGroupFactor.Count; j++)
                 {
-                    if (Convert.ToDecimal(HelpFunctions.FractionToDouble(dGVGroupFactor[j, i].Value.ToString())) == 0)
+                    if ((object)dGVGroupFactor[j, i].Value.ToString() is null)
                     {
                         MessageBox.Show("Заполните все поля!");
                         return;
@@ -102,7 +102,7 @@ namespace Diplom
 
             dGVGroupFactor.Columns.Add("sumstr", "Вес");
             dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].HeaderText = "Вес";
-            dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].Width = 90;
+            dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].Width = 40;
 
             for (int j = 0; j < ListGroupFactor.Count; j++)
             {
@@ -133,22 +133,24 @@ namespace Diplom
             double SI = (IS / arraySI[ListGroupFactor.Count - 1]) * 100;
             tbOS.Text = Math.Round(SI, 4).ToString();
 
-            if (sumResultArray[sumResultArray.Length - 1] > 0)
+            if (SI < 20 )
+            {
+                MessageBox.Show("Оценка не является согласованной, попробуйте задать значения заново");
+            }
+            else if (sumResultArray[sumResultArray.Length - 1] > 0)
             {
                 MessageBox.Show("Оценка группы факторов произведена успешно");
-            }
 
-            CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);
-
-            MessageBox.Show("Спасибо, что поучавствовали в оценке!");
-            this.Close();
-            calcFactor.Show();
-
+                CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);
+                MessageBox.Show("Спасибо, что поучавствовали в оценке!");
+                this.Close();
+                calcFactor.Show();
+            } 
         }
 
         public static double calculateIS(int sizeMatrix, double[,] matrixPrioritis, double[] mainVector)
         {
-            double IS = 0;
+            double IS;
             double[] vectorY = new double[sizeMatrix];
             double sumVectorY = 0;
             double lambdaMax = 0;

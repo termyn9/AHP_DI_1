@@ -85,7 +85,7 @@ namespace Diplom
                 lbFactor.SetSelected(countFactor, true);
             }
 
-            if (count == 15)
+            if (count == 21)
             {
                 count = 0;
             }
@@ -104,19 +104,19 @@ namespace Diplom
             else { valueRB = 0.25; }
 
             arrayValueRB.Add(valueRB);
-            if (arrayValueRB.Count == 15)
+            if (arrayValueRB.Count == 21)
             {
                 bReady.Visible = false;
                 bCalculateCoeff.Visible = true;
             }
         }
 
-        public double CoeffOf5Rows(int i_W, int j_W)
+        public double CoeffOf7Rows(int i_W, int j_W)
         {
             int k = 0;
             double W = 0;
             List<double> resultCoeff = new List<double>();
-            for (int i = i_W; i < i_W + 5; i++)
+            for (int i = i_W; i < i_W + 7; i++)
             {
                 for (int j = j_W; j < j_W + 3; j++)
                 {
@@ -150,7 +150,7 @@ namespace Diplom
                 {
                     if (i == indexFirstGroup[j])
                     {
-                        arrayW.Add(CoeffOf5Rows(i, i * 3));
+                        arrayW.Add(CoeffOf7Rows(i, i * 3));
                     }
                 }
             }
@@ -162,50 +162,50 @@ namespace Diplom
 
             // Расчет коэффициента конкордации // 
 
-            double[,] S_Range = new double[5, dgvGroupFactorsWatch.Rows.Count / 5];
-            double[] S_Factor = new double[5];
+            double[,] S_Range = new double[7, dgvGroupFactorsWatch.Rows.Count / 7];
+            double[] S_Factor = new double[7];
             double S_Result = 0;
             double W = 0;
             List<double> WeightOfGroup = new List<double>();
             double maxValue = 0;
 
-            for (int count = 0; count < dgvGroupFactorsWatch.Rows.Count / 5; count++)
+            for (int count = 0; count < dgvGroupFactorsWatch.Rows.Count / 7; count++)
             {
-                for (int i = count * 5; i < (count + 1) * 5; i++)
+                for (int i = count * 7; i < (count + 1) * 7; i++)
                 {
                     WeightOfGroup.Add(Convert.ToDouble(dgvGroupFactorsWatch.Rows[i].Cells[3].Value));
                 }
 
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     maxValue = WeightOfGroup.Max();
                     S_Range[j, count] = WeightOfGroup.IndexOf(maxValue) + 1;
                     WeightOfGroup[WeightOfGroup.IndexOf(maxValue)] = 0;
                 }
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 7; i++)
                 {
                     WeightOfGroup.RemoveAt(0);
                 }
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 7; i++)
             {
-                for (int j = 0; j < dgvGroupFactorsWatch.Rows.Count / 5; j++)
+                for (int j = 0; j < dgvGroupFactorsWatch.Rows.Count / 7; j++)
                 {
                     S_Factor[i] += S_Range[i, j];
                 }
             }
 
 
-            int M = dgvGroupFactorsWatch.Rows.Count / 5;
-            int A = M * (5 + 1) / 2;
-            for (int i = 0; i < 5; i++)
+            int M = dgvGroupFactorsWatch.Rows.Count / 7;
+            int A = M * (7 + 1) / 2;
+            for (int i = 0; i < 7; i++)
             {
                 S_Result += (S_Factor[i] - A) * (S_Factor[i] - A);
             }
 
-            W = (12 * S_Result) / (M * M * 5 * (5 * 5 - 1));
+            W = (12 * S_Result) / (M * M * 7 * (7 * 7 - 1));
             tbCoeffConcord.Text = Math.Round(W, 4).ToString();
         }
     }

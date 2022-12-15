@@ -35,12 +35,14 @@
             this.dGVFactors = new System.Windows.Forms.DataGridView();
             this.bReadyFactors = new System.Windows.Forms.Button();
             this.dgvFactorsWeight = new System.Windows.Forms.DataGridView();
+            this.bCoeffTolerant = new System.Windows.Forms.Button();
             this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bCoeffTolerant = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVFactors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactorsWeight)).BeginInit();
             this.SuspendLayout();
@@ -63,16 +65,18 @@
             "2. Обуславливаемые архитектурой АСОД",
             "3. Обуславливаемые условиями функционирования  АСОД",
             "4. Обуславливаемые технологией обработки информации",
-            "5. Обуславливаемые организацией работы АСОД"});
+            "5. Обуславливаемые организацией работы АСОД",
+            "6. Обуславливаемые влиянием явлений техногенного характера",
+            "7. Обуславливаемые возможностью хищения информации с применением ТСР"});
             this.lbGroupFactors.Location = new System.Drawing.Point(12, 62);
             this.lbGroupFactors.Name = "lbGroupFactors";
-            this.lbGroupFactors.Size = new System.Drawing.Size(340, 82);
+            this.lbGroupFactors.Size = new System.Drawing.Size(421, 108);
             this.lbGroupFactors.TabIndex = 3;
             // 
             // labelFactors
             // 
             this.labelFactors.AutoSize = true;
-            this.labelFactors.Location = new System.Drawing.Point(383, 28);
+            this.labelFactors.Location = new System.Drawing.Point(454, 28);
             this.labelFactors.Name = "labelFactors";
             this.labelFactors.Size = new System.Drawing.Size(58, 13);
             this.labelFactors.TabIndex = 2;
@@ -85,9 +89,9 @@
             "Степень секретности",
             "Объёмы",
             "Интенсивность обработки"});
-            this.lbFactors.Location = new System.Drawing.Point(386, 62);
+            this.lbFactors.Location = new System.Drawing.Point(457, 62);
             this.lbFactors.Name = "lbFactors";
-            this.lbFactors.Size = new System.Drawing.Size(248, 82);
+            this.lbFactors.Size = new System.Drawing.Size(272, 108);
             this.lbFactors.TabIndex = 3;
             // 
             // dGVFactors
@@ -120,14 +124,26 @@
             this.col2,
             this.col3,
             this.col4,
-            this.col5});
+            this.col5,
+            this.Column1,
+            this.Column2});
             this.dgvFactorsWeight.Location = new System.Drawing.Point(321, 185);
-            this.dgvFactorsWeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvFactorsWeight.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFactorsWeight.Name = "dgvFactorsWeight";
             this.dgvFactorsWeight.RowHeadersWidth = 51;
             this.dgvFactorsWeight.RowTemplate.Height = 24;
             this.dgvFactorsWeight.Size = new System.Drawing.Size(532, 150);
             this.dgvFactorsWeight.TabIndex = 6;
+            // 
+            // bCoeffTolerant
+            // 
+            this.bCoeffTolerant.Location = new System.Drawing.Point(519, 340);
+            this.bCoeffTolerant.Name = "bCoeffTolerant";
+            this.bCoeffTolerant.Size = new System.Drawing.Size(146, 48);
+            this.bCoeffTolerant.TabIndex = 7;
+            this.bCoeffTolerant.Text = "Коэффициент толерантности";
+            this.bCoeffTolerant.UseVisualStyleBackColor = true;
+            this.bCoeffTolerant.Click += new System.EventHandler(this.bCoeffTolerant_Click);
             // 
             // col1
             // 
@@ -159,15 +175,15 @@
             this.col5.MinimumWidth = 6;
             this.col5.Name = "col5";
             // 
-            // bCoeffTolerant
+            // Column1
             // 
-            this.bCoeffTolerant.Location = new System.Drawing.Point(519, 340);
-            this.bCoeffTolerant.Name = "bCoeffTolerant";
-            this.bCoeffTolerant.Size = new System.Drawing.Size(146, 48);
-            this.bCoeffTolerant.TabIndex = 7;
-            this.bCoeffTolerant.Text = "Коэффициент толерантности";
-            this.bCoeffTolerant.UseVisualStyleBackColor = true;
-            this.bCoeffTolerant.Click += new System.EventHandler(this.bCoeffTolerant_Click);
+            this.Column1.HeaderText = "6-ая";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "7-ая";
+            this.Column2.Name = "Column2";
             // 
             // CalcFactor
             // 
@@ -200,11 +216,13 @@
         private System.Windows.Forms.DataGridView dGVFactors;
         private System.Windows.Forms.Button bReadyFactors;
         private System.Windows.Forms.DataGridView dgvFactorsWeight;
+        private System.Windows.Forms.Button bCoeffTolerant;
         private System.Windows.Forms.DataGridViewTextBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
         private System.Windows.Forms.DataGridViewTextBoxColumn col5;
-        private System.Windows.Forms.Button bCoeffTolerant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
