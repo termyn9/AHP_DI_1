@@ -102,7 +102,7 @@ namespace Diplom
 
             dGVGroupFactor.Columns.Add("sumstr", "Вес");
             dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].HeaderText = "Вес";
-            dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].Width = 40;
+            dGVGroupFactor.Columns[dGVGroupFactor.ColumnCount - 1].Width = 60;
 
             for (int j = 0; j < ListGroupFactor.Count; j++)
             {
@@ -115,18 +115,6 @@ namespace Diplom
                 dGVGroupFactor[dGVGroupFactor.ColumnCount - 1, i].Value = sumResultArray[i];
             }
 
-            // === Добавление в БД === //
-
-            for (int i = 0; i < ListGroupFactor.Count; i++)
-            {
-                GroupFactor groupFactor = new GroupFactor();
-                groupFactor.Number = i + 1;
-                groupFactor.Title = ListGroupFactor[i];
-                groupFactor.Weight = sumResultArray[i];
-                db.Groups.Add(groupFactor);
-            }
-            db.SaveChanges();
-
             double IS = calculateIS(ListGroupFactor.Count, PrioritiesGroupFactor, sumResultArray);
             tbIS.Text = Math.Round(IS, 4).ToString();
 
@@ -135,17 +123,31 @@ namespace Diplom
 
             if (SI < 20 )
             {
-                MessageBox.Show("Оценка не является согласованной, попробуйте задать значения заново");
-            }
-            else if (sumResultArray[sumResultArray.Length - 1] > 0)
-            {
                 MessageBox.Show("Оценка группы факторов произведена успешно");
 
                 CalcFactor calcFactor = new CalcFactor(this, ListGroupFactor, sumResultArray);
                 MessageBox.Show("Спасибо, что поучавствовали в оценке!");
                 this.Close();
                 calcFactor.Show();
-            } 
+
+                // === Добавление в БД === //
+
+                for (int i = 0; i < ListGroupFactor.Count; i++)
+                {
+                    GroupFactor groupFactor = new GroupFactor();
+                    groupFactor.Number = i + 1;
+                    groupFactor.Title = ListGroupFactor[i];
+                    groupFactor.Weight = sumResultArray[i];
+                    db.Groups.Add(groupFactor);
+                }
+                db.SaveChanges();
+
+            }
+            else if (sumResultArray[sumResultArray.Length - 1] > 0)
+            {
+                MessageBox.Show("Оценка не является согласованной, попробуйте задать значения заново");
+                this.Close();
+            }
         }
 
         public static double calculateIS(int sizeMatrix, double[,] matrixPrioritis, double[] mainVector)

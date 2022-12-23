@@ -14,7 +14,7 @@ namespace Diplom
     {
         string[] ArrayClassText = { "Слабая защита", "Средняя защита", "Сильная защита", "Особая защита" };
         string[] ArrayCoeff = { "< 0.5", "0.5 - 0.74", "0.75 - 0.87", "> 0.88" };
-        string[] ArrayClass = { "K1", "K2", "K3", "K4" };
+        string[] ArrayClass = { "K4", "K3", "K2", "K1" };
 
         public CharactersTypesClasses()
         {

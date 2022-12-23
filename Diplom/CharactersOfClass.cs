@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,15 +17,15 @@ namespace Diplom
         public CharactersOfClass(string classReq)
         {
             InitializeComponent();
-            lClassSystem.Text = classReq;
 
-            for (int i = 0; i < 5; i++)
-            {
-                ListViewItem req = new ListViewItem($"ИАФ.{(i + 1)}");
-                lVRequirements.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                req.SubItems.Add(HelpFunctions.ListBoxRequirements[i]);
-                lVRequirements.Items.Add(req);
-            }
+            //var materialSkinManager = MaterialSkinManager.Instance;
+            //materialSkinManager.AddFormToManage(this);
+            //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            //materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue400, Primary.Blue800, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
+            lClassSystem.Text = classReq;
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(1, 45);
+            lVRequirements.SmallImageList = imageList;
         }
     }
 }

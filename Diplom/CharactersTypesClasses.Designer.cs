@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvClassesTypes = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.ClassTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coefficient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.bClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassesTypes)).BeginInit();
             this.SuspendLayout();
@@ -46,21 +46,13 @@
             this.ClassTitle,
             this.Coefficient,
             this.Class});
-            this.dgvClassesTypes.Location = new System.Drawing.Point(16, 43);
+            this.dgvClassesTypes.Location = new System.Drawing.Point(12, 35);
+            this.dgvClassesTypes.Margin = new System.Windows.Forms.Padding(2);
             this.dgvClassesTypes.Name = "dgvClassesTypes";
             this.dgvClassesTypes.RowHeadersWidth = 51;
             this.dgvClassesTypes.RowTemplate.Height = 24;
-            this.dgvClassesTypes.Size = new System.Drawing.Size(429, 184);
+            this.dgvClassesTypes.Size = new System.Drawing.Size(322, 150);
             this.dgvClassesTypes.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(123, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Характеристики типовых СЗИ";
             // 
             // ClassTitle
             // 
@@ -86,11 +78,22 @@
             this.Class.ReadOnly = true;
             this.Class.Width = 125;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(92, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Характеристики типовых СЗИ";
+            // 
             // bClose
             // 
-            this.bClose.Location = new System.Drawing.Point(179, 233);
+            this.bClose.Location = new System.Drawing.Point(119, 193);
+            this.bClose.Margin = new System.Windows.Forms.Padding(2);
             this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(117, 31);
+            this.bClose.Size = new System.Drawing.Size(88, 25);
             this.bClose.TabIndex = 2;
             this.bClose.Text = "Закрыть";
             this.bClose.UseVisualStyleBackColor = true;
@@ -98,12 +101,13 @@
             // 
             // CharactersTypesClasses
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 273);
+            this.ClientSize = new System.Drawing.Size(344, 229);
             this.Controls.Add(this.bClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvClassesTypes);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CharactersTypesClasses";
             this.Text = "CharactersTypesClasses";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassesTypes)).EndInit();

@@ -79,13 +79,13 @@
             this.dGVGroupFactor.Location = new System.Drawing.Point(478, 35);
             this.dGVGroupFactor.Name = "dGVGroupFactor";
             this.dGVGroupFactor.RowHeadersWidth = 51;
-            this.dGVGroupFactor.Size = new System.Drawing.Size(454, 190);
+            this.dGVGroupFactor.Size = new System.Drawing.Size(504, 190);
             this.dGVGroupFactor.TabIndex = 2;
             this.dGVGroupFactor.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVGroupFactor_CellEndEdit);
             // 
             // bReadyGroupFactor
             // 
-            this.bReadyGroupFactor.Location = new System.Drawing.Point(648, 240);
+            this.bReadyGroupFactor.Location = new System.Drawing.Point(686, 231);
             this.bReadyGroupFactor.Name = "bReadyGroupFactor";
             this.bReadyGroupFactor.Size = new System.Drawing.Size(107, 45);
             this.bReadyGroupFactor.TabIndex = 3;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 410);
+            this.ClientSize = new System.Drawing.Size(994, 377);
             this.Controls.Add(this.tbOS);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbIS);
